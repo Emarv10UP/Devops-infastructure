@@ -1,0 +1,6 @@
+---
+- name: Configure Web Servers
+  hosts: all
+  tasks:
+    - name: Ensure Nginx is installed
+      echo: "Installing Nginx package"
