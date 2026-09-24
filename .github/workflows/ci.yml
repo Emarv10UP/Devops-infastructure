@@ -1,0 +1,21 @@
+name: DevOps Infrastructure CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Infrastructure Files
+        run: |
+          echo "Validating repository structure..."
+          test -f docker/Dockerfile
+          test -f terraform/main.tf
+          echo "All core files are present!"
